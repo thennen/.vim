@@ -1,0 +1,12 @@
+Vundle requires git (mysysgit)
+and "Curl", part of mysysgit, but had to create C:\Program Files\Git\cmd\curl.cmd
+
+vim-ipython wouldn't run with anaconda due to some dependency issue.  Modified gvim.exe per
+https://github.com/ivanov/vim-ipython/issues/95
+
+Use linux naming convention, create symbolic links to .vim and .vimrc
+mklink /d vimfiles .vim
+mklink _vimrc .vim\.vimrc
+mklink _gvimrc .vim\.gvimrc
+
+
