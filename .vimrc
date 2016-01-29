@@ -14,6 +14,7 @@ call vundle#begin(path)
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 Plugin 'ivanov/vim-ipython'
 Plugin 'pep8'
 Plugin 'luochen1990/rainbow'
@@ -21,6 +22,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'supertab'
 Plugin 'scrooloose/nerdtree'
 Plugin 'klen/python-mode'
+Plugin 'kien/ctrlp.vim'
 let g:rainbow_active = 1
 
 call vundle#end()            " required
@@ -36,6 +38,20 @@ filetype plugin indent on    " required
 set path+=%USERPROFILE%/Desktop/**
 
 """""""""""""""Mappings"""""""""""""
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+" Vim book pg 202 supposed to :noh on C-l.  doesn't work?
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+
+"Full Timestamp
+:nnoremap <F2> "=strftime("%m/%d/%y %X")<CR>P
+:inoremap <F2> <C-R>=strftime("%m/%d/%y %X")<CR>
+
+"Date Timestamp
+:nnoremap <F3> "=strftime("%a %m/%d/%y")<CR>P
+:inoremap <F3> <C-R>=strftime("%a %m/%d/%y")<CR>
 let mapleader=","
 
 " Swap s and l because dvorak.  Still testing this.
@@ -91,6 +107,9 @@ nnoremap <silent> <leader>o o<ESC>
 nnoremap <silent> <leader>O O<ESC>
 
 """""""""""""""""""""""""""""""""""""
+let g:pymode_rope_lookup_project = 0
+let g:pymode_rope_complete_on_dot = 0
+let g:pymode_rope = 0
 
 set ignorecase
 set smartcase
