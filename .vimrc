@@ -107,6 +107,10 @@ nnoremap <silent> <leader>o o<ESC>
 nnoremap <silent> <leader>O O<ESC>
 
 """""""""""""""""""""""""""""""""""""
+function! Autosave()
+  exe ":au FocusLost * :w"
+endfunction
+
 let g:pymode_rope_lookup_project = 0
 let g:pymode_rope_complete_on_dot = 0
 let g:pymode_rope = 0
