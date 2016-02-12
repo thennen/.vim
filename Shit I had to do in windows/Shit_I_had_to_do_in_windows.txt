@@ -1,5 +1,14 @@
+https://bintray.com/veegee/generic/vim_x64/view
+
 Vundle requires git (mysysgit)
 and "Curl", part of mysysgit, but had to create C:\Program Files\Git\cmd\curl.cmd
+
+mkdir C:\tmp
+
+make sure git is in path
+
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+:PluginInstall
 
 vim-ipython wouldn't run with anaconda due to some dependency issue.  Modified gvim.exe per
 https://github.com/ivanov/vim-ipython/issues/95
@@ -9,4 +18,4 @@ mklink /d vimfiles .vim
 mklink _vimrc .vim\.vimrc
 mklink _gvimrc .vim\.gvimrc
 
-
+change the font or something
