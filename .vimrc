@@ -15,10 +15,12 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-abolish'
 Plugin 'ivanov/vim-ipython'
 Plugin 'pep8'
 Plugin 'luochen1990/rainbow'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'Townk/vim-autoclose'
 Plugin 'supertab'
 Plugin 'scrooloose/nerdtree'
 Plugin 'klen/python-mode'
@@ -39,10 +41,13 @@ set path+=%USERPROFILE%/Desktop/**
 
 """""""""""""""Mappings"""""""""""""
 
+" Select the last pasted text
+nnoremap gp `[v`]
+
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-" Vim book pg 202 supposed to :noh on C-l.  doesn't work?
+" Vim book pg 202. supposed to :noh on C-l.
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 "Full Timestamp
@@ -62,7 +67,7 @@ noremap l s
 nmap <leader>w :w!<cr>
 
 " Latex-suite interferes with <c-j> mapping
-imap <C-space> <Plug>IMAP_JumpForward
+"imap <C-space> <Plug>IMAP_JumpForward
 " ?
 let g:BASH_Ctrl_j = 'off'
 
@@ -71,6 +76,7 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 nnoremap <c-h> <c-w>h
+
 
 " Move a line of text using ALT+[jk]
 nmap <M-j> mz:m+<cr>`z
@@ -86,7 +92,7 @@ inoremap <S-CR> <Esc>
 "inoremap aa <Esc>
 inoremap hh <Esc>
 
-" Undo without leaving insert mode.  Maybe a bad idea.
+" Undo without first leaving insert mode.  Maybe a bad idea.
 inoremap uu <Esc>u
 
 " use +/- to increment/decrement numbers
@@ -107,10 +113,20 @@ nnoremap <silent> <leader>o o<ESC>
 nnoremap <silent> <leader>O O<ESC>
 
 """""""""""""""""""""""""""""""""""""
+" ms to wait for multikey commands in insert mode
+:autocmd InsertEnter * set timeoutlen=300
+:autocmd InsertLeave * set timeoutlen=1000
+"set timeoutlen=300
+
+
+" Stop autocomplete from scanning Tags and Included files
+set complete-=t,i
+
 function! Autosave()
   exe ":au FocusLost * :w"
 endfunction
 
+" This is supposed to stop rope from killing computer in pymode
 let g:pymode_rope_lookup_project = 0
 let g:pymode_rope_complete_on_dot = 0
 let g:pymode_rope = 0
@@ -187,8 +203,8 @@ if has("gui")
   cnoremap <M-Space> <C-C>:simalt ~<CR>
 endif
 
-" CTRL-A is Select all
-noremap <C-A> gggH<C-O>G
+" CTRL-A is Select all, except in normal modh
+"noremap <C-A> gggH<C-O>G
 inoremap <C-A> <C-O>gg<C-O>gH<C-O>G
 cnoremap <C-A> <C-C>gggH<C-O>G
 onoremap <C-A> <C-C>gggH<C-O>G
