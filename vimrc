@@ -6,8 +6,8 @@ filetype off
 
 """""""""""""""Vundle"""""""""""""""
 " set the runtime path to include Vundle and initialize
-set rtp+=~/vimfiles/bundle/Vundle.vim/
-let path='~/vimfiles/bundle'
+set rtp+=~/.vim/bundle/Vundle.vim/
+let path='~/.vim/bundle'
 call vundle#begin(path)
 "call vundle#begin('~/some/path/here')
 
@@ -151,8 +151,14 @@ let g:pymode_rope = 0
 set ignorecase
 set smartcase
 
-let $TMP="C:/tmp"
-set directory=.,$TMP,$TEMP
+if has('win32')
+    let $TMP="C:/tmp"
+    set directory=.,$TMP,$TEMP
+    " Screw backup file
+    " set nobackup
+    " set nowb
+    set dir=C:/tmp/
+endif
 
 set wildmenu
 set wildmode=list:longest,full
@@ -167,10 +173,6 @@ set noerrorbells
 set cpoptions+=$
 "set virtualedit=all                        
 
-" Screw backup file
-" set nobackup
-" set nowb
-set dir=C:/tmp/
 
 set number
 syntax on
@@ -179,8 +181,8 @@ set tabstop=8 expandtab shiftwidth=4 softtabstop=4 shiftround autoindent
 
 set background=dark
 "colors blackboard
-"colors ron
-colors solarized
+colors ron
+"colors solarized
 
 
 " Automatic reloading of _vimrc
