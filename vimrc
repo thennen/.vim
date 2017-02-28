@@ -40,6 +40,7 @@ filetype plugin indent on    " required
 set path+=%USERPROFILE%/Desktop/**
 
 """""""""""""""Mappings"""""""""""""
+let mapleader=","
 
 " Fugitive git bindings
 nnoremap <leader>ga :Git add %:p<CR><CR>
@@ -64,7 +65,7 @@ nnoremap gp `[v`]
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-" Vim book pg 202. supposed to :noh on C-l.
+" Vim book pg 202. supposed to :noh on C-l. instead does nothing
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 "Full Timestamp
@@ -74,7 +75,6 @@ nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 "Date Timestamp
 :nnoremap <F3> "=strftime("%a %m/%d/%y")<CR>P
 :inoremap <F3> <C-R>=strftime("%a %m/%d/%y")<CR>
-let mapleader=","
 
 " Swap s and l because dvorak.  Still testing this.
 noremap s l
