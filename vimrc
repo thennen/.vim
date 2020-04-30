@@ -4,6 +4,8 @@ set nocompatible
 "behave mswin
 filetype off
 
+set pythonthreedll=python37.dll
+
 """""""""""""""Vundle"""""""""""""""
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim/
@@ -91,7 +93,7 @@ let g:BASH_Ctrl_j = 'off'
 " Move around splits easily
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
+nnoremap <c-s> <c-w>l
 nnoremap <c-h> <c-w>h
 
 
@@ -130,6 +132,10 @@ nnoremap <silent> <leader>o o<ESC>
 nnoremap <silent> <leader>O O<ESC>
 
 """""""""""""""""""""""""""""""""""""
+
+" Use system clipboard as default register
+set clipboard=unnamed
+
 " ms to wait for multikey commands in insert mode
 :autocmd InsertEnter * set timeoutlen=300
 :autocmd InsertLeave * set timeoutlen=1000

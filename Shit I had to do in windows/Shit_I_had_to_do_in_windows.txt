@@ -13,7 +13,10 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim-ipython wouldn't run with anaconda due to some dependency issue.  Modified gvim.exe per
 https://github.com/ivanov/vim-ipython/issues/95
 
-Use linux naming convention, create symbolic links to .vim and .vimrc
+set environment variables PYTHONHOME and PYTHONPATH to the place where python.exe is
+C:\Users\t\Anaconda3
+
+Use linux naming convention, create symbolic links to .vim and .vimrc, this is so you can have your .vim stuff all in one place and use git.
 mklink /d vimfiles .vim
 mklink _vimrc .vim\.vimrc
 mklink _gvimrc .vim\.gvimrc
